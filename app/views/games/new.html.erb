@@ -1,0 +1,11 @@
+<div class="menu">
+<% @letters.each do |letter| %>
+<div class="letter" style="background-color: hsl(335, <%= rand(9..70) %>%, 94%);"><%= letter %></div>
+<% end %>
+<form action="score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input name="guess" type="text" placeholder="What word can you make?">
+  <input type="hidden" name="letters" value="<%= @letters.join %>">
+  <input type="submit" value="Go!">
+</form>
+</div>
